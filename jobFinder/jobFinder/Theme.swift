@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 class Theme: ObservableObject {
-    public let listJobTitle = TextStyle(fontName: "Avenir-Book", size: 20, lineHeight: 24, foregroundColor: Color.black)
+    public let listJobTitle = TextStyle(fontName: "Avenir-Book", size: 20, lineHeight: 22, foregroundColor: Color.black)
     public let listCompanyName = TextStyle(fontName: "Avenir-Book", size: 18, lineHeight: 18, foregroundColor: Color.gray)
-    public let listLocation = TextStyle(fontName: "Avenir-Book", size: 16, lineHeight: 18, foregroundColor: Color.gray)
+    public let listLocation = TextStyle(fontName: "Avenir-Book", size: 14, lineHeight: 14, foregroundColor: Color.gray)
 }
 
 struct TextStyle {
