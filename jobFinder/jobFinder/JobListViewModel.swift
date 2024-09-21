@@ -9,6 +9,7 @@ import Foundation
 
 class JobListViewModel: ObservableObject {
     let jobData = JobsDataModel()
+    //filtering data
     init() {
         
     }

@@ -9,7 +9,7 @@ import Foundation
 
 class JobListingViewModel: ObservableObject {
     let jobData: Job
-    @Published var isShown: Bool = true
+    @Published var isShown: Bool
     init(jobData: Job, isShown: Bool) {
         self.jobData = jobData
         self.isShown = isShown

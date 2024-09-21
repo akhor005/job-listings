@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct JobFinderApp: App {
+    @StateObject var theme = Theme()
     var body: some Scene {
         WindowGroup {
             JobListView()
+                .environmentObject(theme)
         }
     }
 }

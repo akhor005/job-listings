@@ -12,12 +12,13 @@ struct JobListingView: View {
     let model = JobsDataModel()
     let vm: JobListingViewModel
     var body: some View {
-        Button {
-            print("to details")
+        NavigationLink {
+            JobDetailsView(job: vm.jobData)
         } label: {
-            HStack {
-                Image(systemName: "doc.text.fill").frame(width: 50, height: 50)
-                VStack(alignment: .leading, spacing: 4) {
+            HStack() {
+                //Image(systemName: "doc.text.fill").frame(width: 50, height: 50)
+                CompanyLogoView(inputString: vm.jobData.companyName).padding(10)
+                VStack(alignment: .leading, spacing: 2) {
                     Text(vm.jobData.jobTitle)
                         .textStyle(theme.listJobTitle)
                     Text(vm.jobData.companyName)
@@ -32,7 +33,7 @@ struct JobListingView: View {
                             
                         Text(vm.jobData.location)
                             .textStyle(theme.listLocation)
-                    }
+                    }.padding(.top, 6)
                 }
                 Spacer()
                 Image(systemName: "chevron.forward").foregroundStyle(.black)

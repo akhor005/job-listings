@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct JobListView: View {
-    @StateObject var theme = Theme()
+    @EnvironmentObject var theme: Theme
     @ObservedObject var vm = JobListViewModel()
     var body: some View {
-        ScrollView {
-            ForEach(vm.jobData.jobs) { job in
-                JobListingView(vm: JobListingViewModel(jobData: job, isShown: true))
-                    .environmentObject(theme)
-                Spacer().frame(height: 8)
-            }
-        }.background(
-            Color(red: 0.86, green: 0.92, blue: 0.92)
-        )
+        NavigationView {
+            VStack {
+                Text("Available Jobs")
+                    .textStyle(theme.listJobTitle)
+                ScrollView {
+                    ForEach(vm.jobData.jobs) { job in
+                        Spacer().frame(height: 8)
+                        JobListingView(vm: JobListingViewModel(jobData: job, isShown: true))
+                    }
+                }.background(
+                    theme.backgroundColor
+                )
+            }//.background(theme.backgroundComplement.ignoresSafeArea())
+        }.tint(theme.foregroundColor)
+            
     }
-}
-
-#Preview {
-    JobListView(theme: Theme())
 }
 
