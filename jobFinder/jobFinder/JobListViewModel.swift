@@ -8,9 +8,15 @@
 import Foundation
 
 class JobListViewModel: ObservableObject {
-    let jobData = JobsDataModel()
-    //filtering data
+    let jobData: JobsDataModel
+    @Published var showingFilter = false
+    @Published var titleFilter = ""
+    @Published var companyFilter = ""
     init() {
-        
+        jobData = JobsDataModel()
+    }
+    func filterDidTap() {
+        showingFilter.toggle()
+        titleFilter = ""
     }
 }

@@ -10,8 +10,12 @@ import Foundation
 class JobListingViewModel: ObservableObject {
     let jobData: Job
     @Published var isShown: Bool
-    init(jobData: Job, isShown: Bool) {
+    init(jobData: Job, titleFilter: String, companyFilter: String) {
         self.jobData = jobData
-        self.isShown = isShown
+        
+        let titleMatch = titleFilter == "" || jobData.jobTitle.lowercased().contains(titleFilter.lowercased())
+        let companyMatch = companyFilter == "" || jobData.companyName.lowercased().contains(companyFilter.lowercased())
+        
+        self.isShown = titleMatch && companyMatch
     }
 }

@@ -13,17 +13,40 @@ struct JobListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Available Jobs")
-                    .textStyle(theme.listJobTitle)
+                ZStack {
+                    Text("Available Jobs")
+                        .textStyle(theme.listHeading)
+                    Button {
+                        vm.filterDidTap()
+                    } label: {
+                        Text("Filter")
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding(.horizontal, 15)
+                    }
+                }
+                if vm.showingFilter {
+                    HStack {
+                        TextField(text: $vm.titleFilter) {
+                            Text("Job Title")
+                        }.padding(.horizontal, 10)
+                        Divider().frame(height: 16)
+                        TextField(text: $vm.companyFilter) {
+                            Text("Company Name")
+                        }.padding(.horizontal, 10)
+                    }
+                }
                 ScrollView {
                     ForEach(vm.jobData.jobs) { job in
-                        Spacer().frame(height: 8)
-                        JobListingView(vm: JobListingViewModel(jobData: job, isShown: true))
+                        let currJobListingVM = JobListingViewModel(jobData: job, titleFilter: vm.titleFilter, companyFilter: vm.companyFilter)
+                        if currJobListingVM.isShown {
+                            Spacer().frame(height: 8)
+                            JobListingView(vm: currJobListingVM)
+                        }
                     }
                 }.background(
                     theme.backgroundColor
                 )
-            }//.background(theme.backgroundComplement.ignoresSafeArea())
+            }
         }.tint(theme.foregroundColor)
             
     }

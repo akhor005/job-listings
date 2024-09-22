@@ -13,6 +13,7 @@ class Theme: ObservableObject {
     public let backgroundComplement = Color(red: 0.99, green: 0.94, blue: 0.94)
     public let foregroundColor = Color(red: 0.44, green: 0.68, blue: 0.68)
     
+    public let listHeading = TextStyle(fontName: "Avenir-Book", size: 20, foregroundColor: Color.black)
     public let listJobTitle = TextStyle(fontName: "Avenir-Book", size: 18, foregroundColor: Color.black)
     public let listCompanyName = TextStyle(fontName: "Avenir-Book", size: 16, foregroundColor: Color.gray)
     public let listLocation = TextStyle(fontName: "Avenir-Book", size: 12, foregroundColor: Color.gray)
@@ -23,7 +24,8 @@ class Theme: ObservableObject {
     public let detailsLocation = TextStyle(fontName: "Avenir-Book", size: 18, foregroundColor: Color.gray)
     public let detailsSubtitle = TextStyle(fontName: "Avenir-Book", size: 18, foregroundColor: Color.black)
     public let detailsParagraph = TextStyle(fontName: "Avenir-Book", size: 14, foregroundColor: Color(UIColor.darkGray))
-    public let button = TextStyle(fontName: "Avenir-Heavy", size: 20, foregroundColor: Color.black)
+    public let applyButton = TextStyle(fontName: "Avenir-Heavy", size: 20, foregroundColor: Color.black)
+    public let filterButton = TextStyle(fontName: "Avenir-Heavy", size: 12, foregroundColor: Color(UIColor.label))
 }
 
 struct TextStyle {

@@ -10,14 +10,14 @@ import SwiftUI
 struct JobListingView: View {
     @EnvironmentObject var theme: Theme
     let model = JobsDataModel()
-    let vm: JobListingViewModel
+    @ObservedObject var vm: JobListingViewModel
     var body: some View {
         NavigationLink {
             JobDetailsView(job: vm.jobData)
         } label: {
             HStack() {
-                //Image(systemName: "doc.text.fill").frame(width: 50, height: 50)
                 CompanyLogoView(inputString: vm.jobData.companyName).padding(10)
+                    .frame(maxHeight: .infinity, alignment: .top)
                 VStack(alignment: .leading, spacing: 2) {
                     Text(vm.jobData.jobTitle)
                         .textStyle(theme.listJobTitle)
@@ -42,9 +42,7 @@ struct JobListingView: View {
                 .background(Color.white)
                 .cornerRadius(15)
                 .padding(.horizontal, 10)
-        }
-        .onAppear() {
-            print(model.jobs)
+                .opacity(vm.isShown ? 1 : 0)
         }
     }
 }

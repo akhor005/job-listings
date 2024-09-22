@@ -44,7 +44,7 @@ struct JobDetailsView: View {
                 print("Applied!")
             } label: {
                 Text("Apply")
-                    .textStyle(theme.button)
+                    .textStyle(theme.applyButton)
                     .frame(width: UIScreen.main.bounds.width - 100, height: 50)
                     .background(theme.backgroundColor)
                     .cornerRadius(25)
