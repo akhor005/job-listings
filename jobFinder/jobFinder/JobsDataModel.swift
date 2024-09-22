@@ -17,41 +17,70 @@ struct Job: Identifiable {
 }
 
 class JobsDataModel {
-    var jobs: [Job] = []
+    private var jobs: [Job] = []
+    private var errorMessage: String? = nil
     init() {
-        jobs = read2(filePath: "/Users/adriankhor/Library/GitHub/job-listings/jobFinder/jobFinder/jobs.csv")
-        //print(jobs[0])
+        do {
+            try jobs = read2(filePath: "/Users/adriankhor/Library/GitHub/job-listings/jobFinder/jobFinder/jobs.csv")
+        } catch ReadCSVError.fileNotFound {
+            errorMessage = "CSV file not found"
+        } catch ReadCSVError.badHeader {
+            errorMessage = "Incorrect column names or number of columns"
+        } catch ReadCSVError.openQuotation(let i) {
+            errorMessage = "Quotations left open in row \(i)"
+        } catch ReadCSVError.fewColumns(let i) {
+            errorMessage = "Insufficient columns in row \(i)"
+        } catch {
+            
+        }
     }
-    
-    func read2(filePath: String) -> [Job] {
+    func getJobs() -> [Job] { //to prevent modification
+        return jobs
+    }
+    func getErrorMsg() -> String? {
+        return errorMessage
+    }
+    func read2(filePath: String) throws -> [Job] {
         guard let content = try? String(contentsOfFile: filePath) else {
             print("Failed to read CSV file")
-            return []
+            throw ReadCSVError.fileNotFound
+            
         }
         
         var jobs: [Job] = []
         let rows = content.components(separatedBy: "\n")
-        var id = 0
+        
+        guard rows[0] == "Job Title,Company Name,Location,Job Description,Requirements" else {
+            print("Incorrect headers")
+            throw ReadCSVError.badHeader
+            
+        }
+        var index = 0
         for row in rows[1...] {
-            id += 1
-            print(row)
-            let columns = separateRow(row: row)
-//            print(columns)
+            index += 1
+            let columns: [String]
+            do {
+                columns = try separateRow(row: row)
+            } catch {
+                throw ReadCSVError.openQuotation(index)
+            }
             if columns.count == 5 {
                 jobs.append(Job(
-                    id: id,
+                    id: index,
                     jobTitle: columns[0],
                     companyName: columns[1],
                     location: columns[2].trimmingCharacters(in: CharacterSet(charactersIn: "\"")),
                     jobDescription: columns[3].trimmingCharacters(in: CharacterSet(charactersIn: "\"")),
                     requirements: columns[4].trimmingCharacters(in: CharacterSet(charactersIn: "\""))
                 ))
+            } else if columns.count > 1 { //for blank lines
+                throw ReadCSVError.fewColumns(index)
             }
         }
         
         return jobs
     }
-    func separateRow(row: String) -> [String] {
+    func separateRow(row: String) throws -> [String] {
         var separations = row.components(separatedBy: ",")
         var insideQuotation = false
         var repeatedIndices = [Int]()
@@ -62,6 +91,9 @@ class JobsDataModel {
                 insideQuotation = false
             }
             if insideQuotation {
+                if separations.count < i+2 {
+                    throw ReadCSVError.openQuotation(0)
+                }
                 repeatedIndices.append(i)
                 separations[i+1] = separations[i] + "," + separations[i+1]
             }
@@ -73,3 +105,9 @@ class JobsDataModel {
     }
 }
 
+enum ReadCSVError: Error {
+    case fileNotFound
+    case badHeader
+    case openQuotation(Int)
+    case fewColumns(Int)
+}

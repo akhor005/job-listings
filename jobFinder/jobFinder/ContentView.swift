@@ -36,16 +36,20 @@ struct JobListView: View {
                     }
                 }
                 ScrollView {
-                    ForEach(vm.jobData.jobs) { job in
-                        let currJobListingVM = JobListingViewModel(jobData: job, titleFilter: vm.titleFilter, companyFilter: vm.companyFilter)
-                        if currJobListingVM.isShown {
-                            Spacer().frame(height: 8)
-                            JobListingView(vm: currJobListingVM)
+                    if vm.jobData.getErrorMsg() == nil {
+                        ForEach(vm.jobData.getJobs()) { job in
+                            let currJobListingVM = JobListingViewModel(jobData: job, titleFilter: vm.titleFilter, companyFilter: vm.companyFilter)
+                            if currJobListingVM.isShown {
+                                Spacer().frame(height: 8)
+                                JobListingView(vm: currJobListingVM)
+                            }
                         }
+                    } else {
+                        Text("Error:\n").padding(.top, 50)
+                        Text(vm.jobData.getErrorMsg()!)
                     }
-                }.background(
-                    theme.backgroundColor
-                )
+                }.frame(width: UIScreen.main.bounds.width)
+                    .background(theme.backgroundColor)
             }
         }.tint(theme.foregroundColor)
             

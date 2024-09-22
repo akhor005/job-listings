@@ -120,8 +120,8 @@
 				ACBBAC0A2C9D3C3B00835B9F /* JobListingViewModel.swift */,
 				ACBBAC082C9D3BF800835B9F /* JobListViewModel.swift */,
 				ACBBAC102C9E954000835B9F /* CompanyLogoView.swift */,
-				ACBBAC072C9BCB0C00835B9F /* jobs.csv */,
 				ACCF5D1B2C96B7CF006612F1 /* Theme.swift */,
+				ACBBAC072C9BCB0C00835B9F /* jobs.csv */,
 				AC0EBDAA2C965C39007F2815 /* Assets.xcassets */,
 				AC0EBDAC2C965C39007F2815 /* Preview Content */,
 			);
