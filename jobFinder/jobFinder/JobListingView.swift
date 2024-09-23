@@ -9,7 +9,6 @@ import SwiftUI
 
 struct JobListingView: View {
     @EnvironmentObject var theme: Theme
-    let model = JobsDataModel()
     @ObservedObject var vm: JobListingViewModel
     var body: some View {
         NavigationLink {

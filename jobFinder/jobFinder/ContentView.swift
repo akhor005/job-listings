@@ -9,7 +9,7 @@ import SwiftUI
 
 struct JobListView: View {
     @EnvironmentObject var theme: Theme
-    @ObservedObject var vm = JobListViewModel()
+    @ObservedObject var vm = JobListViewModel(fromFile: "columns.csv") //change csv here for error testing
     var body: some View {
         NavigationView {
             VStack {
@@ -29,10 +29,12 @@ struct JobListView: View {
                         TextField(text: $vm.titleFilter) {
                             Text("Job Title")
                         }.padding(.horizontal, 10)
+                            .autocorrectionDisabled()
                         Divider().frame(height: 16)
                         TextField(text: $vm.companyFilter) {
                             Text("Company Name")
                         }.padding(.horizontal, 10)
+                            .autocorrectionDisabled()
                     }
                 }
                 ScrollView {

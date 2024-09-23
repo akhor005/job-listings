@@ -21,6 +21,9 @@
 		ACBBAC0D2C9D3ED100835B9F /* JobListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBAC0C2C9D3ED100835B9F /* JobListingView.swift */; };
 		ACBBAC0F2C9D515700835B9F /* JobDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBAC0E2C9D515600835B9F /* JobDetailsView.swift */; };
 		ACBBAC112C9E954100835B9F /* CompanyLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBAC102C9E954000835B9F /* CompanyLogoView.swift */; };
+		ACBBAC182CA0E59800835B9F /* openQuotes.csv in Resources */ = {isa = PBXBuildFile; fileRef = ACBBAC152CA0E59700835B9F /* openQuotes.csv */; };
+		ACBBAC192CA0E59800835B9F /* badHeader.csv in Resources */ = {isa = PBXBuildFile; fileRef = ACBBAC162CA0E59700835B9F /* badHeader.csv */; };
+		ACBBAC1A2CA0E59800835B9F /* columns.csv in Resources */ = {isa = PBXBuildFile; fileRef = ACBBAC172CA0E59800835B9F /* columns.csv */; };
 		ACCF5D1C2C96B7CF006612F1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF5D1B2C96B7CF006612F1 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,12 +57,17 @@
 		AC0EBDC32C965C3A007F2815 /* jobFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ACBBAC032C9B989200835B9F /* jobs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jobs.csv; path = ../../../../Downloads/jobs.csv; sourceTree = "<group>"; };
 		ACBBAC052C9BCA4F00835B9F /* JobsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsDataModel.swift; sourceTree = "<group>"; };
-		ACBBAC072C9BCB0C00835B9F /* jobs.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = jobs.csv; sourceTree = "<group>"; };
 		ACBBAC082C9D3BF800835B9F /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
 		ACBBAC0A2C9D3C3B00835B9F /* JobListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListingViewModel.swift; sourceTree = "<group>"; };
 		ACBBAC0C2C9D3ED100835B9F /* JobListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListingView.swift; sourceTree = "<group>"; };
 		ACBBAC0E2C9D515600835B9F /* JobDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsView.swift; sourceTree = "<group>"; };
 		ACBBAC102C9E954000835B9F /* CompanyLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyLogoView.swift; sourceTree = "<group>"; };
+		ACBBAC152CA0E59700835B9F /* openQuotes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = openQuotes.csv; path = ../../../../Downloads/openQuotes.csv; sourceTree = "<group>"; };
+		ACBBAC162CA0E59700835B9F /* badHeader.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = badHeader.csv; path = ../../../../Downloads/badHeader.csv; sourceTree = "<group>"; };
+		ACBBAC172CA0E59800835B9F /* columns.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = columns.csv; path = ../../../../Downloads/columns.csv; sourceTree = "<group>"; };
+		ACBBAC1B2CA0EB7400835B9F /* jobs.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = jobs.csv; sourceTree = "<group>"; };
+		ACBBAC1C2CA0EBE400835B9F /* openQuotes.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = openQuotes.csv; sourceTree = "<group>"; };
+		ACBBAC1D2CA0EBE400835B9F /* columns.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = columns.csv; sourceTree = "<group>"; };
 		ACCF5D1B2C96B7CF006612F1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				ACBBAC032C9B989200835B9F /* jobs.csv */,
+				ACBBAC1B2CA0EB7400835B9F /* jobs.csv */,
+				ACBBAC162CA0E59700835B9F /* badHeader.csv */,
+				ACBBAC172CA0E59800835B9F /* columns.csv */,
+				ACBBAC1D2CA0EBE400835B9F /* columns.csv */,
+				ACBBAC152CA0E59700835B9F /* openQuotes.csv */,
+				ACBBAC1C2CA0EBE400835B9F /* openQuotes.csv */,
 				AC0EBDA52C965C36007F2815 /* jobFinder */,
 				AC0EBDB62C965C3A007F2815 /* jobFinderTests */,
 				AC0EBDC02C965C3A007F2815 /* jobFinderUITests */,
@@ -121,7 +135,6 @@
 				ACBBAC082C9D3BF800835B9F /* JobListViewModel.swift */,
 				ACBBAC102C9E954000835B9F /* CompanyLogoView.swift */,
 				ACCF5D1B2C96B7CF006612F1 /* Theme.swift */,
-				ACBBAC072C9BCB0C00835B9F /* jobs.csv */,
 				AC0EBDAA2C965C39007F2815 /* Assets.xcassets */,
 				AC0EBDAC2C965C39007F2815 /* Preview Content */,
 			);
@@ -259,7 +272,10 @@
 			files = (
 				AC0EBDAE2C965C39007F2815 /* Preview Assets.xcassets in Resources */,
 				AC0EBDAB2C965C39007F2815 /* Assets.xcassets in Resources */,
+				ACBBAC1A2CA0E59800835B9F /* columns.csv in Resources */,
 				ACBBAC042C9B989200835B9F /* jobs.csv in Resources */,
+				ACBBAC192CA0E59800835B9F /* badHeader.csv in Resources */,
+				ACBBAC182CA0E59800835B9F /* openQuotes.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

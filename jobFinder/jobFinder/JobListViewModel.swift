@@ -12,11 +12,12 @@ class JobListViewModel: ObservableObject {
     @Published var showingFilter = false
     @Published var titleFilter = ""
     @Published var companyFilter = ""
-    init() {
-        jobData = JobsDataModel()
+    init(fromFile fileName: String) {
+        jobData = JobsDataModel(fileName: fileName)
     }
     func filterDidTap() {
         showingFilter.toggle()
         titleFilter = ""
+        companyFilter = ""
     }
 }

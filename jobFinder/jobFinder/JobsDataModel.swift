@@ -19,9 +19,9 @@ struct Job: Identifiable {
 class JobsDataModel {
     private var jobs: [Job] = []
     private var errorMessage: String? = nil
-    init() {
+    init(fileName: String) {
         do {
-            try jobs = read2(filePath: "/Users/adriankhor/Library/GitHub/job-listings/jobFinder/jobFinder/jobs.csv")
+            try jobs = readCSV(fileName: fileName)
         } catch ReadCSVError.fileNotFound {
             errorMessage = "CSV file not found"
         } catch ReadCSVError.badHeader {
@@ -40,20 +40,19 @@ class JobsDataModel {
     func getErrorMsg() -> String? {
         return errorMessage
     }
-    func read2(filePath: String) throws -> [Job] {
-        guard let content = try? String(contentsOfFile: filePath) else {
+    func readCSV(fileName: String) throws -> [Job] {
+        let file = fileName.split(separator: ".")
+        let csvFile = Bundle.main.path(forResource: String(file[0]), ofType: "csv")
+        guard let content = try? String(contentsOfFile: csvFile ?? "") else {
             print("Failed to read CSV file")
             throw ReadCSVError.fileNotFound
-            
         }
         
         var jobs: [Job] = []
         let rows = content.components(separatedBy: "\n")
         
         guard rows[0] == "Job Title,Company Name,Location,Job Description,Requirements" else {
-            print("Incorrect headers")
             throw ReadCSVError.badHeader
-            
         }
         var index = 0
         for row in rows[1...] {

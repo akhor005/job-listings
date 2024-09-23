@@ -23,7 +23,7 @@ class Theme: ObservableObject {
     public let detailsCompanyName = TextStyle(fontName: "Avenir-Book", size: 18, foregroundColor: Color.gray)
     public let detailsLocation = TextStyle(fontName: "Avenir-Book", size: 18, foregroundColor: Color.gray)
     public let detailsSubtitle = TextStyle(fontName: "Avenir-Book", size: 18, foregroundColor: Color.black)
-    public let detailsParagraph = TextStyle(fontName: "Avenir-Book", size: 14, foregroundColor: Color(UIColor.darkGray))
+    public let detailsParagraph = TextStyle(fontName: "Avenir-Book", size: 14, lineHeight: 14, foregroundColor: Color(UIColor.darkGray))
     public let applyButton = TextStyle(fontName: "Avenir-Heavy", size: 20, foregroundColor: Color.black)
     public let filterButton = TextStyle(fontName: "Avenir-Heavy", size: 12, foregroundColor: Color(UIColor.label))
 }
