@@ -9,7 +9,7 @@ import SwiftUI
 
 struct JobListView: View {
     @EnvironmentObject var theme: Theme
-    @ObservedObject var vm = JobListViewModel(fromFile: "columns.csv") //change csv here for error testing
+    @ObservedObject var vm = JobListViewModel(fromFile: "jobs.csv") //change csv here for error testing
     var body: some View {
         NavigationView {
             VStack {
