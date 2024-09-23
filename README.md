@@ -9,3 +9,5 @@ Based on experience, centralized theming always makes for a smooth development e
 Reading the CSV and handling errors
 
 Since Swift does not have any built in CSV readers, I had to make my own, which made for an interesting challenge. My first thought was to use regex, but Swift's string/substring properties can get really messy. Instead, I separated the string naively into an array of strings, then combined elements inside quotations. This approach made unclosed quotations very easy to catch. Other exceptions are improper header, insufficient columns in a given row and file not found. The error is displayed to the user with the row where it occurs, if applicable.
+
+Unfortunately, I did not have time to implement the favorites feature. I'd be happy to discuss my thought process on that next time we meet.
